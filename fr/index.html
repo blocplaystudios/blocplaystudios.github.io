@@ -61,7 +61,7 @@
             height: 45px;
             border-radius: 10px;
             object-fit: cover;
-            background-color: var(--bg-main); /* Fallback si l'image n'est pas chargée */
+            background-color: var(--bg-main);
         }
 
         .logo-text {
@@ -97,7 +97,7 @@
             text-align: center;
             padding: 0 20px;
             background: radial-gradient(circle at center, #2b2d31 0%, #1e1f22 100%);
-            margin-top: 60px; /* Offset for header */
+            margin-top: 60px; 
         }
 
         .hero h1 {
@@ -210,18 +210,13 @@
             border-color: var(--accent);
         }
 
-        .project-icon {
+        .project-img {
             width: 60px;
             height: 60px;
-            background-color: var(--accent);
             border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            font-weight: bold;
-            color: white;
+            object-fit: cover;
             margin-bottom: 20px;
+            background-color: #1e1f22;
         }
 
         .project-card h3 {
@@ -284,7 +279,7 @@
 
         @media (max-width: 768px) {
             .nav-links {
-                display: none; /* Menu burger à implémenter pour mobile si besoin */
+                display: none; 
             }
             .hero h1 {
                 font-size: 2.5rem;
@@ -304,7 +299,7 @@
     <header>
         <div class="nav-container">
             <a href="#" class="logo-container">
-                <img src="/png/png.png" alt="BlocPlay Studios Logo" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <img src="/png/png.png" alt="BlocPlay Studios Logo" class="logo-img" onerror="this.style.display='none';">
                 <span class="logo-text">BlocPlay Studios</span>
             </a>
             <ul class="nav-links">
@@ -342,24 +337,24 @@
             <div class="projects-grid">
                 
                 <div class="project-card">
-                    <div class="project-icon">BPC</div>
-                    <h3>BP Contact</h3>
-                    <p>Une application de messagerie instantanée en temps réel. Discutez, réagissez, et restez en contact avec votre réseau dans un environnement sécurisé et moderne.</p>
-                    <a href="#" class="project-link">Ouvrir l'application →</a>
+                    <img src="https://blocplay-beta.github.io/icon.png" alt="BlocPlay Logo" class="project-img" onerror="this.style.display='none';">
+                    <h3>BlocPlay</h3>
+                    <p>Découvrez notre plateforme centrale. Un écosystème en pleine évolution pensé pour la communauté et axé sur l'innovation ludique.</p>
+                    <a href="https://blocplay-beta.github.io" target="_blank" class="project-link">Visiter le site →</a>
                 </div>
 
                 <div class="project-card">
-                    <div class="project-icon" style="background-color: var(--alert-yellow, #fee75c); color: #1e1f22;">W</div>
-                    <h3>BP Wiki</h3>
+                    <img src="https://bp-contact.github.io/bp-contact.ico" alt="BP Contact Logo" class="project-img" onerror="this.style.display='none';">
+                    <h3>BlocPlay Contact</h3>
+                    <p>Une application de messagerie instantanée en temps réel. Discutez, réagissez, et restez en contact avec votre réseau dans un environnement sécurisé et moderne.</p>
+                    <a href="https://bp-contact.github.io" target="_blank" class="project-link">Ouvrir l'application →</a>
+                </div>
+
+                <div class="project-card">
+                    <img src="https://bp-help.github.io/logo.png" alt="BP Aide Logo" class="project-img" onerror="this.style.display='none';">
+                    <h3>BlocPlay Aide</h3>
                     <p>L'encyclopédie officielle de l'univers BlocPlay. Retrouvez toutes les astuces, aides et informations sur nos applications et nos jeux en développement.</p>
                     <a href="https://bp-help.github.io" target="_blank" class="project-link">Visiter le Wiki →</a>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-icon" style="background-color: #23a559;">?</div>
-                    <h3>Projet Mystère</h3>
-                    <p>Nos développeurs travaillent actuellement sur un nouveau projet innovant. Restez à l'écoute pour les prochaines annonces de BlocPlay Studios !</p>
-                    <span class="project-link" style="color: var(--text-muted); cursor: not-allowed;">En développement...</span>
                 </div>
 
             </div>
@@ -373,8 +368,8 @@
             </div>
             <div class="social-links">
                 <a href="#">Discord</a>
-                <a href="#">GitHub</a>
-                <a href="#">Twitter/X</a>
+                <a href="#">YouTube</a>
+                <a href="#">TikTok</a>
             </div>
             <div class="footer-mentions">
                 <a href="#" style="color: var(--text-muted); text-decoration: none; font-size: 0.9rem;">Mentions Légales</a>
