@@ -118,6 +118,13 @@
             margin-bottom: 40px;
         }
 
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
         .btn {
             padding: 15px 30px;
             background-color: var(--accent);
@@ -126,14 +133,25 @@
             border-radius: 8px;
             font-weight: bold;
             font-size: 1.1rem;
-            transition: background-color 0.3s, transform 0.2s;
-            border: none;
+            transition: background-color 0.3s, transform 0.2s, border-color 0.3s;
+            border: 2px solid transparent;
             cursor: pointer;
         }
 
         .btn:hover {
             background-color: var(--accent-hover);
             transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 2px solid var(--text-muted);
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-color: white;
         }
 
         /* --- SECTIONS COMMUNES --- */
@@ -148,6 +166,7 @@
             text-align: center;
             margin-bottom: 50px;
             color: white;
+            position: relative;
         }
 
         .section-title::after {
@@ -160,7 +179,22 @@
             border-radius: 2px;
         }
 
-        /* --- À PROPOS --- */
+        .title-arrow {
+            text-decoration: none;
+            color: var(--accent);
+            font-size: 2rem;
+            vertical-align: middle;
+            margin-left: 10px;
+            transition: color 0.3s, transform 0.3s;
+            display: inline-block;
+        }
+
+        .title-arrow:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+
+        /* --- À PROPOS (STUDIO) --- */
         .about-content {
             display: flex;
             gap: 50px;
@@ -179,14 +213,12 @@
 
         .about-image {
             flex: 1;
-            background-color: var(--bg-secondary);
-            height: 300px;
+            width: 100%;
+            height: 320px;
             border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 2px dashed #444;
-            color: #666;
+            object-fit: cover;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            border: 1px solid #333;
         }
 
         /* --- PROJETS --- */
@@ -287,6 +319,9 @@
             .about-content {
                 flex-direction: column;
             }
+            .about-image {
+                height: 220px;
+            }
             .footer-content {
                 flex-direction: column;
                 justify-content: center;
@@ -312,10 +347,13 @@
     </header>
 
     <main>
-        <section id="accueil" class="hero">
+        <section class="hero">
             <h1>Créons l'univers <span>BlocPlay</span></h1>
             <p>Un studio indépendant dédié à la création d'expériences logicielles et ludiques uniques. Innovant, moderne et communautaire.</p>
-            <a href="/fr/projects" class="btn">Découvrir nos créations</a>
+            <div class="hero-buttons">
+                <a href="#projets" class="btn">Découvrir nos créations</a>
+                <a href="#studio" class="btn btn-secondary">Découvrir le studio</a>
+            </div>
         </section>
 
         <section id="studio">
@@ -326,14 +364,12 @@
                     <p>Notre mission est de concevoir des outils, des jeux et des plateformes qui rassemblent les utilisateurs dans des environnements modernes, rapides et sécurisés. Nous mettons un point d'honneur à soigner l'interface et l'expérience utilisateur (UI/UX) pour que chaque interaction soit intuitive.</p>
                     <p>De la messagerie instantanée aux encyclopédies communautaires, nous repoussons constamment nos limites pour vous offrir le meilleur.</p>
                 </div>
-                <div class="about-image">
-                    [Image illustrative du studio / Setup]
-                </div>
+                <img src="/png/banner.png" alt="BlocPlay Studios Bannière" class="about-image" onerror="this.style.display='none';">
             </div>
         </section>
 
         <section id="projets">
-            <h2 class="section-title">Nos Projets</h2>
+            <h2 class="section-title">Nos Projets <a href="/fr/projets" class="title-arrow" title="Voir tous les projets">➔</a></h2>
             <div class="projects-grid">
                 
                 <div class="project-card">
@@ -351,7 +387,7 @@
                 </div>
 
                 <div class="project-card">
-                    <img src="https://bp-help.github.io/logo.png" alt="BP Aide Logo" class="project-img" onerror="this.style.display='none';">
+                    <img src="https://bp-help.github.io/img/logo.png" alt="BP Aide Logo" class="project-img" onerror="this.style.display='none';">
                     <h3>BlocPlay Aide</h3>
                     <p>L'encyclopédie officielle de l'univers BlocPlay. Retrouvez toutes les astuces, aides et informations sur nos applications et nos jeux en développement.</p>
                     <a href="https://bp-help.github.io" target="_blank" class="project-link">Ouvrir →</a>
