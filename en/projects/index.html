@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Projects - BlocPlay Studios</title>
+    <style>
+        :root {
+            --bg-main: #1e1f22;
+            --bg-secondary: #2b2d31;
+            --accent: #5865f2;
+            --accent-hover: #4752c4;
+            --text-main: #dbdee1;
+            --text-muted: #949ba4;
+            --status-beta: #fee75c;
+            --status-stable: #23a559;
+            --status-online: #5865f2;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* --- NAVIGATION --- */
+        header {
+            background-color: rgba(43, 45, 49, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+            color: white;
+        }
+
+        .logo-img {
+            width: 45px;
+            height: 45px;
+            border-radius: 10px;
+            object-fit: cover;
+            background-color: var(--bg-main);
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--accent);
+        }
+
+        /* --- PROJECTS HERO --- */
+        .projects-hero {
+            text-align: center;
+            padding: 120px 20px 40px;
+            background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-main) 100%);
+        }
+
+        .projects-hero h1 {
+            font-size: 3rem;
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .projects-hero p {
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 30px;
+            font-size: 1.1rem;
+        }
+
+        /* --- FILTERS --- */
+        .filter-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 10px 20px;
+            background-color: var(--bg-secondary);
+            color: var(--text-main);
+            border: 1px solid #333;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background-color: var(--accent);
+            color: white;
+            border-color: var(--accent);
+        }
+
+        /* --- PROJECTS GRID --- */
+        .projects-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px 80px;
+            flex: 1;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background-color: var(--bg-secondary);
+            border-radius: 15px;
+            padding: 30px;
+            border: 1px solid #333;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.5);
+            border-color: var(--accent);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .project-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            object-fit: cover;
+            background-color: var(--bg-main);
+        }
+
+        .status-badge {
+            font-size: 0.75rem;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .status-beta { background-color: rgba(254, 231, 92, 0.1); color: var(--status-beta); }
+        .status-stable { background-color: rgba(35, 165, 89, 0.1); color: var(--status-stable); }
+        .status-online { background-color: rgba(88, 101, 242, 0.1); color: var(--status-online); }
+
+        .project-card h3 {
+            font-size: 1.6rem;
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .project-card p {
+            color: var(--text-muted);
+            margin-bottom: 25px;
+            flex: 1;
+        }
+
+        .project-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            align-self: flex-start;
+            transition: color 0.3s;
+        }
+
+        .project-link:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #111214;
+            padding: 40px 20px;
+            text-align: center;
+            color: var(--text-muted);
+            margin-top: auto;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; 
+            }
+            .projects-hero h1 {
+                font-size: 2.3rem;
+            }
+            .footer-content {
+                flex-direction: column;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="/en" class="logo-container">
+                <img src="/png/png.png" alt="BlocPlay Studios Logo" class="logo-img" onerror="this.style.display='none';">
+                <span class="logo-text">BlocPlay Studios</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="/en">Home</a></li>
+                <li><a href="/en/studio">The Studio</a></li>
+                <li><a href="/en/projects" class="active">Our Projects</a></li>
+                <li><a href="/en/contacts">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main style="flex: 1;">
+        <section class="projects-hero">
+            <h1>Our Creations</h1>
+            <p>Explore the projects and applications developed by the BlocPlay Studios team. Modern tools designed for the community.</p>
+            
+            <div class="filter-container">
+                <button class="filter-btn active" onclick="filterProjects('all')">Show all</button>
+                <button class="filter-btn" onclick="filterProjects('app')">Applications</button>
+                <button class="filter-btn" onclick="filterProjects('tool')">Tools & Docs</button>
+            </div>
+        </section>
+
+        <section class="projects-wrapper">
+            <div class="projects-grid">
+                
+                <div class="project-card" data-category="app">
+                    <div class="card-header">
+                        <img src="https://blocplay-beta.github.io/icon.png" alt="BlocPlay Logo" class="project-img" onerror="this.style.display='none';">
+                        <span class="status-badge status-beta">Beta</span>
+                    </div>
+                    <h3>BlocPlay</h3>
+                    <p>Our central platform. A comprehensive, constantly evolving ecosystem interconnecting our future services and gaming modules.</p>
+                    <a href="https://blocplay-beta.github.io" target="_blank" class="project-link">Open →</a>
+                </div>
+
+                <div class="project-card" data-category="app">
+                    <div class="card-header">
+                        <img src="https://bp-contact.github.io/bp-contact.ico" alt="BP Contact Logo" class="project-img" onerror="this.style.display='none';">
+                        <span class="status-badge status-stable">Stable</span>
+                    </div>
+                    <h3>BlocPlay Contact</h3>
+                    <p>Fluid, encrypted instant messaging. Stay connected to your channels and loved ones in real-time on an intuitive, clean interface.</p>
+                    <a href="https://bp-contact.github.io" target="_blank" class="project-link">Open →</a>
+                </div>
+
+                <div class="project-card" data-category="tool">
+                    <div class="card-header">
+                        <img src="https://bp-help.github.io/img/logo.png" alt="BP Help Logo" class="project-img" onerror="this.style.display='none';">
+                        <span class="status-badge status-online">Online</span>
+                    </div>
+                    <h3>BlocPlay Help</h3>
+                    <p>The centralized wiki and guide for the ecosystem. Access comprehensive documentation, FAQs, and technical manuals for our apps.</p>
+                    <a href="https://bp-help.github.io" target="_blank" class="project-link">Open →</a>
+                </div>
+
+                <div class="project-card" data-category="app">
+                    <div class="card-header">
+                        <img src="https://vibranet.codeberg.page/res/img/favicon.png" alt="VibraNet Logo" class="project-img" onerror="this.style.display='none';">
+                        <span class="status-badge status-beta">Beta</span>
+                    </div>
+                    <h3>VibraNet</h3>
+                    <p>Discover our new networking application. A vibrant platform designed to push the boundaries of communication and sharing.</p>
+                    <a href="https://vibranet.codeberg.page" target="_blank" class="project-link">Open →</a>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <strong>BlocPlay Studios</strong> © 2026
+            </div>
+            <div class="social-links">
+                <a href="https://discord.gg/TcK65JDaaC" target="_blank">Discord</a>
+                <a href="https://youtube.com/@BlocPlayStudios" target="_blank">YouTube</a>
+                <a href="https://tiktok.com/@blocplaystudios" target="_blank">TikTok</a>
+            </div>
+            <div class="footer-mentions">
+                <a href="#" style="color: var(--text-muted); text-decoration: none; font-size: 0.9rem;">Legal Notices</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function filterProjects(category) {
+            // Manage active class on buttons
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            // Filter project cards
+            const cards = document.querySelectorAll('.project-card');
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
