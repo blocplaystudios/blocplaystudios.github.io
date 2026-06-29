@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO optimisation -->
+  <meta name="description" content="Projects | BlocPlay Studios">
+  <meta name="image" content="https://blocplaystudios.github.io/png/png.png">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://blocplaystudios.github.io/projects">
+  <meta property="og:title" content="BlocPlay Studios">
+  <meta property="og:description" content="Projects | BlocPlay Studios">
+  <meta property="og:image" content="https://blocplaystudios.github.io/png/png.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://blocplaystudios.github.io/projects">
+  <meta name="twitter:title" content="BlocPlay Studios">
+  <meta name="twitter:description" content="Projects | BlocPlay Studios">
+  <meta name="twitter:image" content="https://blocplaystudios.github.io/png/png.png">
+  <!-- start process -->
+  <title>Projects - BlocPlay Studios</title>
+  
+  <link rel="canonical" href="https://blocplaystudios.github.io/en/projects">
+  
+  <script>
+    (function() {
+      // Récupère les deux premières lettres de la langue du navigateur (ex: "fr", "en")
+      const userLang = (navigator.language || navigator.userLanguage).toLowerCase().slice(0, 2);
+      const supportedLanguages = ['fr'];
+
+      // Redirige vers /fr/projects si le français est détecté, sinon vers /en/projects
+      if (supportedLanguages.includes(userLang)) {
+        window.location.replace('/' + userLang + '/projects');
+      } else {
+        window.location.replace('/en/projects');
+      }
+    })();
+  </script>
+</head>
+<body style="background-color: #1e1f22; color: #dbdee1; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0;">
+  
+  <div style="text-align: center;" id="loading-message">
+      <p>Redirecting... / Redirection en cours...</p>
+  </div>
+
+  <noscript>
+    <style>
+        #loading-message { display: none; } /* Cache le message de redirection si JS est désactivé */
+    </style>
+    <div style="text-align: center;">
+      <p>Please select your language / Veuillez choisir votre langue :</p>
+      <ul style="list-style: none; padding: 0; display: flex; gap: 20px; justify-content: center; margin-top: 15px;">
+        <li>
+            <a href="/en/projects" style="color: #5865f2; text-decoration: none; font-weight: bold; padding: 10px 20px; background-color: #2b2d31; border-radius: 8px;">English</a>
+        </li>
+        <li>
+            <a href="/fr/projects" style="color: #5865f2; text-decoration: none; font-weight: bold; padding: 10px 20px; background-color: #2b2d31; border-radius: 8px;">Français</a>
+        </li>
+      </ul>
+    </div>
+  </noscript>
+
+</body>
+</html>
